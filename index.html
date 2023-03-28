@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Font family -->
+
+    <!-- css -->
+    <link rel="stylesheet" href="styles/index.css" />
+    <link rel="stylesheet" href="styles/home.css" />
+    <link rel="stylesheet" href="styles/tabla.css" />
+    <link rel="stylesheet" href="styles/dashboard.css" />
+    <!-- css icons -->
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <nav class="sidebar">
+      <header>
+        <div class="image-container">
+          <span class="image">
+            <img src="/assets/logo.png" alt="logo" />
+          </span>
+        </div>
+        <i class="bx bx-chevron-right toggle"></i>
+      </header>
+      <div class="menu-bar">
+        <ul class="menu-links">
+          <!-- Search -->
+          <li class="search-box">
+            <i class="bx bx-search-alt-2 search-icon"></i>
+            <input type="search" id="search" placeholder="Buscar usuario..." />
+          </li>
+          <!-- Home -->
+          <a href="#home">
+            <li class="nav-link">
+              <i class="bx bx-home icon"></i>
+              <span class="text nav-text">Home</span>
+            </li>
+          </a>
+          <!-- Table -->
+          <a href="#tabla">
+            <li class="nav-link">
+              <i class="bx bx-table icon"></i>
+              <span class="text nav-text">Tabla</span>
+            </li>
+          </a>
+          <!-- Dashboard -->
+          <a href="#dashboard">
+            <li class="nav-link">
+              <i class="bx bxs-dashboard icon"></i>
+              <span class="text nav-text">Dashboard</span>
+            </li>
+          </a>
+        </ul>
+        <!-- Dark mode -->
+        <div class="bottom-content">
+          <li class="mode">
+            <div class="moon-sun">
+              <i class="bx bx-moon icon moon"></i>
+              <i class="bx bx-sun icon sun"></i>
+            </div>
+            <div class="toggle-switch">
+              <span class="switch"></span>
+            </div>
+          </li>
+        </div>
+      </div>
+    </nav>
+    <section id="home">
+      <h1>Bienvenido!</h1>
+    </section>
+
+    <section id="tabla">
+      <table id="myTable">
+        <thead>
+          <tr>
+            <th>Cliente UUID</th>
+            <th>Usuario</th>
+            <th>Fecha</th>
+            <th>Codigo Empleado</th>
+            <th>Uniforme Bueno</th>
+            <th>Uniforme Regular</th>
+            <th>Uniforme Malo</th>
+            <th>Equipo Bueno</th>
+            <th>Equipo Regular</th>
+            <th>Equipo Malo</th>
+            <th>Comunicacion Bueno</th>
+            <th>Comunicacion Regular</th>
+            <th>Comunicacion Malo</th>
+            <th>Supervisor</th>
+            <th>Existe Novedad</th>
+            <th>Acciones</th>
+            <th>Lista de Armas</th>
+            <th>Sucursales</th>
+            <th>Observaciones</th>
+            <th>Ver/Editar/Eliminar</th>
+          </tr>
+        </thead>
+        <tbody id="data"></tbody>
+      </table>
+      <button id="show-modal" class="registerBtn">Agregar registro</button>
+      <div id="modal" class="modal">
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <form class="formulario">
+            <div class="formdata">
+              <label for="usuario">Usuario</label>
+              <input type="text" name="usuario" />
+
+              <label for="fecha">Fecha</label>
+              <input type="date" name="fecha" />
+              <label for="codigo">Codigo Empleado</label>
+              <input type="text" name="codigo" />
+
+              <label for="ubueno">Uniforme Bueno</label>
+              <input type="text" name="ubueno" />
+
+              <label for="uregular">Uniforme Regular</label>
+              <input type="text" name="uregular" />
+
+              <label for="umalo">Uniforme Malo</label>
+              <input type="text" name="umalo" />
+
+              <label for="ebueno">Equipo Bueno</label>
+              <input type="ebueno" name="ebueno" />
+
+              <label for="eregular">Equipo Regular</label>
+              <input type="text" name="eregular" />
+
+              <label for="emalo">Equipo Malo</label>
+              <input type="text" name="emalo" />
+
+              <label for="cbuena">Comunicacion Buena</label>
+              <input type="text" name="cbuena" />
+
+              <label for="cregular">Comunicacion Regular</label>
+              <input type="text" name="cregular" />
+
+              <label for="cmala">Comunicacion Mala</label>
+              <input type="text" name="cmala" />
+
+              <label for="supervisor">Supervisor</label>
+              <input type="text" name="supervisor" />
+
+              <label for="novedades">Existe Novedad</label>
+              <input type="text" name="novedades" />
+
+              <label for="acciones">Acciones</label>
+              <input type="text" name="acciones" />
+
+              <label for="armas">Lista de Armas</label>
+              <input type="text" name="armas" />
+
+              <label for="sucursales">Sucursales</label>
+              <input type="text" name="sucursales" />
+
+              <label for="observaciones">Observaciones</label>
+              <input type="text" name="observaciones" />
+            </div>
+
+            <button type="submit" class="submitBtn">Agregar</button>
+          </form>
+        </div>
+      </div>
+      <div id="snackbar">Registro agregado con éxito.</div>
+    </section>
+
+    <section id="dashboard">
+      <h1>Dashboard</h1>
+
+      <div class="dataContainer">
+        <div class="agentesData">
+          <i class="bx bx-group agentesIcon"></i>
+          <h3 class="totalUsuarios">20.000 usuarios</h3>
+        </div>
+        <div class="sucursalesData">
+          <canvas id="chart"></canvas>
+        </div>
+      </div>
+    </section>
+    <script src="script.js"></script>
+  </body>
+</html>
